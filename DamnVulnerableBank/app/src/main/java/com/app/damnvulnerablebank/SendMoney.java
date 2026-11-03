@@ -35,7 +35,7 @@ import java.util.concurrent.Executor;
 
 import static com.app.damnvulnerablebank.ViewBeneficiaryAdmin.beneficiary_account_number;
 
-public class SendMoney extends AppCompatActivity {
+public class SendMoney extends SecureBaseActivity {
 
     Button send;
     TextView tt;
@@ -96,7 +96,6 @@ public class SendMoney extends AppCompatActivity {
                         try {
 
                         JSONObject decryptedResponse =  new JSONObject(EncryptDecrypt.decrypt(response.get("enc_data").toString()));
-                        Log.d("Send Money", decryptedResponse.toString());
 
                         if(decryptedResponse.getJSONObject("status").getInt("code") != 200) {
                             Toast.makeText(getApplicationContext(), "Error: " + decryptedResponse.getJSONObject("data").getString("message"), Toast.LENGTH_SHORT).show();

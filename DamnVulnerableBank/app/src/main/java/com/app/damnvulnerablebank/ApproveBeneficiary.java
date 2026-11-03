@@ -25,13 +25,14 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ApproveBeneficiary extends AppCompatActivity {
+public class ApproveBeneficiary extends SecureBaseActivity {
     TextView hey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_approvebenificiary);
+        getWindow().getDecorView().getRootView().setFilterTouchesWhenObscured(true);
         hey=findViewById(R.id.accountid);
         Intent i =getIntent();
         String we=i.getStringExtra("id");

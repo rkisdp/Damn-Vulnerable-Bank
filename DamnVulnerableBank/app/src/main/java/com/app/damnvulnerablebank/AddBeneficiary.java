@@ -24,12 +24,13 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AddBeneficiary extends AppCompatActivity {
+public class AddBeneficiary extends SecureBaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addbenif);
+        getWindow().getDecorView().getRootView().setFilterTouchesWhenObscured(true);
 
 
     }
