@@ -27,7 +27,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends SecureBaseActivity {
 
     @Override
     public void onBackPressed() {

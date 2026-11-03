@@ -57,7 +57,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:fontFamily="@font/muli_extrabold"
-                    android:inputType="textEmailAddress"
+                    android:inputType="textEmailAddress|textNoSuggestions"
                     android:textColor="#000000"
                     android:textCursorDrawable="@null" />
 

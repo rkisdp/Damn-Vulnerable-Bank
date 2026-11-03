@@ -12,7 +12,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class SplashScreen extends AppCompatActivity {
+public class SplashScreen extends SecureBaseActivity {
 
     private static int SPLASH_TIMER= 3000;
 

@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class PendingBeneficiary extends AppCompatActivity implements Padapter.OnItemClickListener{
+public class PendingBeneficiary extends SecureBaseActivity implements Padapter.OnItemClickListener{
     public static final String id="id";
     RecyclerView recyclerView;
     List<PendingBeneficiaryRecords> precords;
@@ -63,7 +63,6 @@ public class PendingBeneficiary extends AppCompatActivity implements Padapter.On
 
                             JSONObject decryptedResponse = new JSONObject(EncryptDecrypt.decrypt(response.get("enc_data").toString()));
 
-                            Log.d("Pending Beneficiary", decryptedResponse.toString());
 //                            Log.d("Pending Beneficiary", decryptedResponse.getJSONObject("status").getInt("code"));
                             // Check for error message
                             if(decryptedResponse.getJSONObject("status").getInt("code") != 200) {

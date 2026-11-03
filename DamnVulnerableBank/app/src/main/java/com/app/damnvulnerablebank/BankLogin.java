@@ -24,7 +24,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class BankLogin extends AppCompatActivity {
+public class BankLogin extends SecureBaseActivity {
 
     private ProgressBar spinner;
     private RelativeLayout priv;
@@ -85,7 +85,6 @@ public class BankLogin extends AppCompatActivity {
                             JSONObject obj = decryptedResponse.getJSONObject("data");
                             String accessToken=obj.getString("accessToken");
                             SharedPreferences sharedPreferences = getSharedPreferences("jwt", Context.MODE_PRIVATE);
-                            Log.d("accesstoken",accessToken);
                             sharedPreferences.edit().putString("accesstoken",accessToken).apply();
                             sharedPreferences.edit().putBoolean("isloggedin",true).apply();
                             startActivity(new Intent(BankLogin.this, Dashboard.class));
