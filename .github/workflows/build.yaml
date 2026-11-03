@@ -47,9 +47,12 @@ jobs:
         with:
           java-version: "8"
           distribution: temurin
-      - name: Grant execute permission for gradlew
-        working-directory: DamnVulnerableBank
-        run: chmod +x gradlew
+      # gradle-wrapper.jar is not committed (*.jar is gitignored), so ./gradlew cannot run.
+      # Install the Gradle version pinned in gradle-wrapper.properties and call it directly.
+      - name: Set up Gradle 6.1.1
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "6.1.1"
       # Fix dependencies that no longer resolve now that JCenter is gone:
       # - volley 1.1.1 was JCenter-only; 1.2.1 is on Maven Central (not listed by the project)
       # - passcodeview 0.1.2 is not published anywhere and is unused by the app
@@ -71,7 +74,7 @@ jobs:
       - name: Build the app
         working-directory: DamnVulnerableBank
         timeout-minutes: 30
-        run: ./gradlew bundleDebug --no-daemon -I "$RUNNER_TEMP/pin-deps.gradle"
+        run: gradle bundleDebug --no-daemon -I "$RUNNER_TEMP/pin-deps.gradle"
       - uses: actions/upload-artifact@v4
         with:
           name: dvba.aab
